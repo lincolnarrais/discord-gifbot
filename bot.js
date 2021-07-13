@@ -9,6 +9,14 @@ client.on('ready', () => {
 
 client.on('message', async (msg) => {
   try {
+    let userName = msg.member.user.username;
+    let content = msg.content;
+    let timestamp = msg.createdAt;
+    let hour = timestamp.getHours();
+    let minute = timestamp.getMinutes();
+    let second = timestamp.getSeconds();
+    let time = `${hour}:${minute}:${second}`;
+    console.log(`${userName} [${time}]: ${content}`);
     let query = msg.content.split(' ');
     if (query[0].startsWith('.')) {
       switch (query[0]) {
